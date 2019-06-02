@@ -25,7 +25,7 @@ for file_name in albumfolders:
 	new_file_name = new_file_name.replace('-(','(')
 	print file_name + "--->" + new_file_name
 	shutil.move(os.path.join(path, file_name), os.path.join(path, new_file_name))
-
+'''
 
 
 #rename files
@@ -35,17 +35,17 @@ for folder in albumfolders:
 	if os.path.isdir(os.path.join(path, folder)):
 		song_folder = os.path.join(path, folder)
 		print 'song folder ' + song_folder
-		#if song_folder == '/Users/balajiathreya/Downloads/music/Uyire':
-		songs = os.listdir(song_folder)
-		for song in songs:
-			if 'DS_Store' not in song :
-				new_song = song.replace('- [Masstamilan.in]','').replace(' [Masstamilan.In]','').replace(' - Masstamilan.In - Masstamilan.In-','').replace(' [Masstamilan.In]-','').replace('-MassTamilan.org','')
-				new_song = new_song.replace(' [Masstamilan.in]','').replace(' - Masstamilan.In-','').replace(' (Masstamilan.in)','').replace('-MassTamilan.com','').replace('-Masstamilan.In','').replace('-StarMusiQ.Com','')
-				new_song = new_song.replace('-[Masstamilan.In]','').replace(' ','-')
-				new_song = new_song.replace('-(','(').replace(')-',')').replace('--','').replace('-.mp3','.mp3')
-				print "mp3 is " + new_song
-				os.rename(os.path.join(song_folder, song), os.path.join(song_folder, new_song))
-'''
+		if song_folder == '/Users/balajiathreya/Downloads/music/Punnagai-Mannan':
+			songs = os.listdir(song_folder)
+			for song in songs:
+				if 'DS_Store' not in song :
+					new_song = song.replace('- [Masstamilan.in]','').replace(' [Masstamilan.In]','').replace(' - Masstamilan.In - Masstamilan.In-','').replace(' [Masstamilan.In]-','').replace('-MassTamilan.org','')
+					new_song = new_song.replace(' [Masstamilan.in]','').replace(' - Masstamilan.In-','').replace(' (Masstamilan.in)','').replace('-MassTamilan.com','').replace('-Masstamilan.In','').replace('-StarMusiQ.Com','')
+					new_song = new_song.replace('-[Masstamilan.In]','').replace(' ','-')
+					new_song = new_song.replace('-(','(').replace(')-',')').replace('--','').replace('-.mp3','.mp3')
+					print "mp3 is " + new_song
+					os.rename(os.path.join(song_folder, song), os.path.join(song_folder, new_song))
+
 
 #modify metadata 
 
@@ -54,11 +54,11 @@ for folder in albumfolders:
 	if os.path.isdir(os.path.join(path, folder)):
 		song_folder = os.path.join(path, folder)
 		#print 'song folder ' + song_folder
-		if song_folder == '/Users/balajiathreya/Downloads/music/Nandha':
+		if song_folder == '/Users/balajiathreya/Downloads/music/Punnagai-Mannan':
 			print "processing " + song_folder
 			songs = os.listdir(song_folder)
 			for song in songs:
-				s = song.replace('.mp3','')
+				s = song.replace('.mp3','').replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','').replace('-MassTamilan.com','')
 				if 'DS_Store' not in song :
 					print "======"+os.path.join(song_folder, song)+"======"
 
@@ -87,13 +87,13 @@ for folder in albumfolders:
 					#ALBUM
 					talb = id3.getall('TALB')
 					if talb :
-						c = str(talb[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+						c = str(talb[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','').replace('-MassTamilan.com','')
 						id3.add( TALB( encoding=3, text=c ) )
 
 					#ALBUMARTIST
 					tpe2 = id3.getall('TPE2')
 					if tpe2 : 
-						x = str(tpe2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+						x = str(tpe2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','').replace('-MassTamilan.com','')
 						try:
 							id3.add( TPE2( encoding=3, text=x ) )
 							id3.add( TSO2( encoding=3, text=x ) )
@@ -113,7 +113,7 @@ for folder in albumfolders:
 					#ARTIST
 					tpe1 = id3.getall('TPE1')
 					if tpe1 :
-						a = str(tpe1[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+						a = str(tpe1[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','').replace('-MassTamilan.com','')
 						try:
 							id3.add( TPE1( encoding=3, text=a ) )
 							id3.add( TSOP( encoding=3, text=a ) )
@@ -130,7 +130,7 @@ for folder in albumfolders:
 							except :
 								print "***encoding error***"
 						else:
-							b = str(tit2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+							b = str(tit2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','').replace('-MassTamilan.com','')
 							try:
 								id3.add( TIT2( encoding=3, text=b ) )
 								id3.add( TSOT( encoding=3, text=b ) )
@@ -146,6 +146,8 @@ for folder in albumfolders:
 
 					if tit2 == tpe1:
 						mp3['title'] = s;
+					title = mp3['title'][0]
+					mp3['title'] = title.replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','').replace('-MassTamilan.com','')
 					mp3['copyright'] = ""
 					mp3['genre'] = ""
 					mp3['arranger'] = ""
