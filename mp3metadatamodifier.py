@@ -122,9 +122,6 @@ for folder in albumfolders:
 				mp3 = MP3(os.path.join(song_folder, song), ID3=EasyID3)
 				print (mp3.pprint())
 				
-				# mp3['album'] = mp3['album'][0].replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','')
-				# mp3['title'] = mp3['title'][0].replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','')
-				# mp3['artist'] = mp3['artist'][0].replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','')
 				mp3['copyright'] = ""
 				mp3['genre'] = ""
 				mp3['arranger'] = ""
@@ -136,10 +133,6 @@ for folder in albumfolders:
 				mp3['isrc'] = ''
 				mp3['bpm'] = ''
 				mp3['website'] = ''
-				# if id3.getall('TPE2'): 
-				# 	albumartist = mp3['albumartist'][0]
-				# 	mp3['albumartist'] = mp3.replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','')
-				# 	mp3['composer'] = mp3['albumartist']
 				mp3.save(v2_version=3)
 
 				newmp3 = MP3(os.path.join(song_folder, song), ID3=EasyID3)
