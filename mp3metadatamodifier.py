@@ -19,7 +19,7 @@ path = "/Users/balajiathreya/Downloads/newmusic"
 albumfolders = os.listdir(path)
 for file_name in albumfolders:
 	new_file_name = file_name.replace('- [Masstamilan.in]','').replace(' [Masstamilan.In]','').replace(' - Masstamilan.In - Masstamilan.In-','').replace(' [Masstamilan.In]-','').replace('-MassTamilan.org','')
-	new_file_name = new_file_name.replace(' [Masstamilan.in]','').replace(' - Masstamilan.In-','').replace(' (Masstamilan.in)','').replace('-MassTamilan.com','').replace('-Masstamilan.In','')
+	new_file_name = new_file_name.replace(' [Masstamilan.in]','').replace(' - Masstamilan.In-','').replace(' (Masstamilan.in)','').replace('-MassTamilan.com','').replace('-Masstamilan.In','').replace('-StarMusiQ.Com','')
 	new_file_name = new_file_name.replace('-[Masstamilan.In]','').replace(' ','-')
 	new_file_name = new_file_name.replace('-320kbps','').replace('-128kbps','') .replace('-160kbps','') .replace('_160kbps','') .replace('_128kbps','') .replace('_320kbps','') .replace(' ','-')
 	new_file_name = new_file_name.replace('-(','(')
@@ -40,7 +40,7 @@ for folder in albumfolders:
 		for song in songs:
 			if 'DS_Store' not in song :
 				new_song = song.replace('- [Masstamilan.in]','').replace(' [Masstamilan.In]','').replace(' - Masstamilan.In - Masstamilan.In-','').replace(' [Masstamilan.In]-','').replace('-MassTamilan.org','')
-				new_song = new_song.replace(' [Masstamilan.in]','').replace(' - Masstamilan.In-','').replace(' (Masstamilan.in)','').replace('-MassTamilan.com','').replace('-Masstamilan.In','')
+				new_song = new_song.replace(' [Masstamilan.in]','').replace(' - Masstamilan.In-','').replace(' (Masstamilan.in)','').replace('-MassTamilan.com','').replace('-Masstamilan.In','').replace('-StarMusiQ.Com','')
 				new_song = new_song.replace('-[Masstamilan.In]','').replace(' ','-')
 				new_song = new_song.replace('-(','(').replace(')-',')').replace('--','').replace('-.mp3','.mp3')
 				print "mp3 is " + new_song
@@ -82,36 +82,48 @@ for folder in albumfolders:
 				#ALBUM
 				talb = id3.getall('TALB')
 				if talb :
-					c = str(talb[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','')
+					c = str(talb[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
 					id3.add( TALB( encoding=3, text=c ) )
 					
 				
 				#ARTIST
 				tpe1 = id3.getall('TPE1')
 				if tpe1 :
-					a = str(tpe1[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','')
-					id3.add( TPE1( encoding=3, text=a ) )
-					id3.add( TSOP( encoding=3, text=a ) )
+					a = str(tpe1[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+					try:
+						id3.add( TPE1( encoding=3, text=a ) )
+						id3.add( TSOP( encoding=3, text=a ) )
+					except :
+						print "encoding error"
 				
 				#TITLE
 				tit2 = id3.getall('TIT2')
 				if tit2:
-					b = str(tit2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','')
-					id3.add( TIT2( encoding=3, text=a ) )
-					id3.add( TSOT( encoding=3, text=a ) )
+					b = str(tit2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+					try:
+						id3.add( TIT2( encoding=3, text=a ) )
+						id3.add( TSOT( encoding=3, text=a ) )
+					except :
+						print "encoding error"
 
 				#ALBUMARTIST
 				tpe2 = id3.getall('TPE2')
 				if tpe2 : 
-					x = str(tpe2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','')
-					id3.add( TPE2( encoding=3, text=a ) )
-					id3.add( TSO2( encoding=3, text=a ) )
+					x = str(tpe2[0]).replace(' - [Masstamilan.In]','').replace('-[Masstamilan.In]','').replace(' [Masstamilan.In]','').replace(' [Masstamilan.in]','').replace(' - Masstamilan.In','').replace('[Masstamilan.in]','').replace(' - MassTamilan.com','').replace(' - Masstamilan.in','').replace(' -Masstamilan.In','').replace('Masstamilan.In','').replace('masstamilan.in','').replace(' (masstamilan.in)','').replace(' - MassTamilan.org','').replace('-StarMusiQ.Com','')
+					try:
+						id3.add( TPE2( encoding=3, text=a ) )
+						id3.add( TSO2( encoding=3, text=a ) )
+					except :
+						print "encoding error"
 
 				# composer 
 				tcom = id3.getall('TCOM')
 				if tcom:
-					id3.add( TCOM( encoding=3, text=a ) )
-					id3.add( TSOC( encoding=3, text=a ) )
+					try:
+						id3.add( TCOM( encoding=3, text=a ) )
+						id3.add( TSOC( encoding=3, text=a ) )
+					except :
+						print "encoding error"
 
 				id3.save(v2_version=3)
 
@@ -141,4 +153,3 @@ for folder in albumfolders:
 
 
 		 			
-
